@@ -21,5 +21,6 @@ typedef char * string_t;
 #include "strcase.h"
 #include "trim.h"
 #include "repeat.h"
+#include "replace.h"
 
 #endif

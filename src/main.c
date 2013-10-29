@@ -123,6 +123,15 @@ int main(int argc, const char * argv[])
   }
   
   
+  __("replace"); {
+    str = copy_str(s1);
+    printf("strtr(&str, \"ctr\", \"CTR\"): '%s'\n", strtr(&str, "ctr", "CTR"));
+    free(str);
+    
+    str = copy_str(s1);
+    printf("copy_replace(\"Vee\", \"Wei++\", s1): '%s'\n", copy_replace("Vee", "Wei++", s1));
+    free(str);
+  }
   
   return 0;
 }

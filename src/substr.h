@@ -45,6 +45,6 @@ string_t copy_substr(const string_t str, long start, long length);
  * @param needle 要搜索的字符串
  * @return 返回子字符串needle 在字符串 haystack 中出现的次数
  */
-long substr_count(const string_t haystack, const string_t needle);
+size_t substr_count(const string_t haystack, const string_t needle);
 
 #endif

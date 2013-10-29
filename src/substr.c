@@ -48,9 +48,9 @@ string_t copy_substr(const string_t str, long start, long length)
   return result;
 }
 
-long substr_count(const string_t haystack, const string_t needle)
+size_t substr_count(const string_t haystack, const string_t needle)
 {
-  int count = 0;
+  size_t count = 0;
   
   long pos;
   string_t p = haystack;

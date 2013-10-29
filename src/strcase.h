@@ -11,6 +11,14 @@
 
 #include "string.h"
 
+/**
+ * 转换字符串大小写
+ *
+ * @param str 待转换的字符串
+ * @param length 转换字符串长度，如果小于等于0或大于`str`的长度，则转换整个字符串
+ * @param to_lower 为true则转换成大写字母，否则转换成小写字母
+ * @return 返回转换后的字符串
+ */
 string_t strcase(string_t *str, size_t length, bool to_lower);
 
 /**
