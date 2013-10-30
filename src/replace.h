@@ -27,8 +27,29 @@ string_t strtr(string_t *str, const string_t from, const string_t to);
  * @param search 查找的目标值
  * @param replace `search`的替换值
  * @param subject 执行替换的数组或者字符串
+ * @param ignorecase 是否忽略大小写
  * @return 该函数返回替换后的数组或者字符串
  */
-string_t copy_replace(const string_t search, const string_t replace, const string_t subject);
+string_t copy_strreplace(const string_t search, const string_t replace, const string_t subject, const bool ignorecase);
+
+/**
+ * 子字符串替换
+ *
+ * @param search 查找的目标值
+ * @param replace `search`的替换值
+ * @param subject 执行替换的数组或者字符串
+ * @return 该函数返回替换后的数组或者字符串
+ */
+#define copy_replace(search, replace, subject) copy_strreplace(search, replace, subject, false)
+
+/**
+ * 子字符串替换(忽略大小写)
+ *
+ * @param search 查找的目标值
+ * @param replace `search`的替换值
+ * @param subject 执行替换的数组或者字符串
+ * @return 该函数返回替换后的数组或者字符串
+ */
+#define copy_ireplace(search, replace, subject) copy_strreplace(search, replace, subject, true)
 
 #endif

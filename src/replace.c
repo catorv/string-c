@@ -23,7 +23,7 @@ string_t strtr(string_t *str, const string_t from, const string_t to)
   return *str;
 }
 
-string_t copy_replace(const string_t search, const string_t replace, const string_t subject)
+string_t copy_strreplace(const string_t search, const string_t replace, const string_t subject, const bool ignorecase)
 {
   size_t len_subject = strlen(subject);
   size_t len_search = strlen(search);
@@ -38,8 +38,9 @@ string_t copy_replace(const string_t search, const string_t replace, const strin
   size_t i = 0;
   size_t c = 0;
   
+  int (* cmp)(const char *, const char *, size_t) = ignorecase ? strncasecmp : strncmp;
   while (i <= len_subject) {
-    if (strncmp(subject + i, search, len_search) == 0) {
+    if (cmp(subject + i, search, len_search) == 0) {
       memcpy(result + c, replace, len_replace);
       c += len_replace;
       i += len_search;

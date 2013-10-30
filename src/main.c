@@ -128,8 +128,12 @@ int main(int argc, const char * argv[])
     printf("strtr(&str, \"ctr\", \"CTR\"): '%s'\n", strtr(&str, "ctr", "CTR"));
     free(str);
     
-    str = copy_str(s1);
-    printf("copy_replace(\"Vee\", \"Wei++\", s1): '%s'\n", copy_replace("Vee", "Wei++", s1));
+    str = copy_replace("cator", "name", s1);
+    printf("copy_replace(\"cator\", \"name\", s1): '%s'\n", str);
+    free(str);
+      
+    str = copy_ireplace("cator", "name", s1);
+    printf("copy_replace(\"cator\", \"name\", s1): '%s'\n", str);
     free(str);
   }
   
