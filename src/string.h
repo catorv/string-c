@@ -22,5 +22,6 @@ typedef char * string_t;
 #include "trim.h"
 #include "repeat.h"
 #include "replace.h"
+#include "html.h"
 
 #endif

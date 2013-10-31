@@ -128,12 +128,33 @@ int main(int argc, const char * argv[])
     printf("strtr(&str, \"ctr\", \"CTR\"): '%s'\n", strtr(&str, "ctr", "CTR"));
     free(str);
     
-    str = copy_replace("cator", "name", s1);
-    printf("copy_replace(\"cator\", \"name\", s1): '%s'\n", str);
+    str = copy_replace("cator", "*name*", s1);
+    printf("copy_replace(\"cator\", \"*name*\", s1): '%s'\n", str);
     free(str);
       
-    str = copy_ireplace("cator", "name", s1);
-    printf("copy_replace(\"cator\", \"name\", s1): '%s'\n", str);
+    str = copy_ireplace("cator", "*name*", s1);
+    printf("copy_ireplace(\"cator\", \"*name*\", s1): '%s'\n", str);
+    free(str);
+  }
+    
+  __("html"); {
+    string_t html = "<p>Test 'paragraph'.</p><!-- Comment --> <a href=\"#fragment\">Other text</a>";
+    printf("html: ‘%s’\n", html);
+    
+    str = copy_str(html);
+    printf("striptags(html): '%s'\n", striptags(&str));
+    free(str);
+    
+    str = copy_htmlencode(html, false);
+    printf("copy_htmlencode(html, false): '%s'\n", str);
+    free(str);
+    
+    str = copy_htmlencode(html, true);
+    printf("copy_htmlencode(html, true): '%s'\n", str);
+    free(str);
+    
+    str = copy_htmlencode(html, false);
+    printf("htmldecode(encoded_html): '%s'\n", htmldecode(&str));
     free(str);
   }
   
