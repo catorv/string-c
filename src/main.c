@@ -157,6 +157,16 @@ int main(int argc, const char * argv[])
     printf("htmldecode(encoded_html): '%s'\n", htmldecode(&str));
     free(str);
   }
+    
+  __("url"); {
+    string_t url = "http://domain.com/index.html?name=cator&age=100#";
+    printf("url: '%s'\n", url);
+    
+    str = copy_urlencode(url);
+    printf("copy_urlencode(url): '%s'\n", str);
+    printf("urldecode(copy_urlencode(url)): '%s'\n", urldecode(&str));
+    free(str);
+  }
   
   return 0;
 }

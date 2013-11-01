@@ -23,5 +23,6 @@ typedef char * string_t;
 #include "repeat.h"
 #include "replace.h"
 #include "html.h"
+#include "url.h"
 
 #endif
