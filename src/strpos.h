@@ -9,8 +9,6 @@
 #ifndef string_c_strpos_h
 #define string_c_strpos_h
 
-#include <stdbool.h>
-
 #include "string.h"
 
 long _strpos(const string_t haystack,const string_t needle, bool ignorecase, bool from_right);

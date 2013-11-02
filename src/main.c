@@ -159,13 +159,26 @@ int main(int argc, const char * argv[])
   }
     
   __("url"); {
-    string_t url = "http://domain.com/index.html?name=cator&age=100#";
+    string_t url = "http://myname:mypw@catorv.com/index.html?name=cator&age=100#vee~";
     printf("url: '%s'\n", url);
     
     str = copy_urlencode(url);
     printf("copy_urlencode(url): '%s'\n", str);
     printf("urldecode(copy_urlencode(url)): '%s'\n", urldecode(&str));
     free(str);
+    
+    urlcompoments_t *components = copy_urlparse(url);
+    if (components) {
+      printf("copy_urlparse - scheme: '%s'\n", components->scheme);
+      printf("copy_urlparse - user: '%s'\n", components->user);
+      printf("copy_urlparse - password: '%s'\n", components->password);
+      printf("copy_urlparse - host: '%s'\n", components->host);
+      printf("copy_urlparse - port: %d\n", components->port);
+      printf("copy_urlparse - path: '%s'\n", components->path);
+      printf("copy_urlparse - query: '%s'\n", components->query);
+      printf("copy_urlparse - fragment: '%s'\n", components->fragment);
+      free_urlcomponents(components);
+    }
   }
   
   return 0;

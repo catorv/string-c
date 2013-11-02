@@ -11,6 +11,17 @@
 
 #include "string.h"
 
+typedef struct urlcomponents_t {
+    string_t scheme;
+    string_t user;
+    string_t password;
+    string_t host;
+    unsigned short port;
+    string_t path;
+    string_t query;
+    string_t fragment;
+} urlcompoments_t;
+
 /**
  * 此函数便于将字符串编码并将其用于 URL 的请求部分，同时它还便于将变量传递给下一页。
  *
@@ -26,5 +37,9 @@ string_t copy_urlencode(const string_t str);
  * @return 返回解码后的字符串
  */
 string_t urldecode(string_t *str);
+
+urlcompoments_t *copy_urlparse(string_t str);
+
+void free_urlcomponents(urlcompoments_t *components);
 
 #endif
