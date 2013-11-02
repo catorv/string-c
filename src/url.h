@@ -12,14 +12,14 @@
 #include "string.h"
 
 typedef struct urlcomponents_t {
-    string_t scheme;
-    string_t user;
-    string_t password;
-    string_t host;
-    unsigned short port;
-    string_t path;
-    string_t query;
-    string_t fragment;
+  string_t scheme;      // 协议名称
+  string_t user;        // 用户名
+  string_t password;    // 密码
+  string_t host;        // 主机名或域名
+  unsigned short port;  // 端口号
+  string_t path;        // 路径
+  string_t query;       // 在问号 ? 之后的部分
+  string_t fragment;    // 在散列符号 # 之后的部分
 } urlcompoments_t;
 
 /**
@@ -38,8 +38,19 @@ string_t copy_urlencode(const string_t str);
  */
 string_t urldecode(string_t *str);
 
+/**
+ * 解析URL字符串并返回URL的各个部分。
+ *
+ * @param str 要解析的URL
+ * @return 如果解析失败，返回NULL，否则返回一个`urlcompoments_t`指针
+ */
 urlcompoments_t *copy_urlcompoments(string_t str);
 
+/**
+ * 释放`urlcompoments_t`变量占用的内存
+ * 
+ * @param components 要释放的`urlcompoments_t`变量
+ */
 void free_urlcomponents(urlcompoments_t *components);
 
 #endif
