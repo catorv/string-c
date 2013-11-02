@@ -38,7 +38,7 @@ string_t copy_urlencode(const string_t str);
  */
 string_t urldecode(string_t *str);
 
-urlcompoments_t *copy_urlparse(string_t str);
+urlcompoments_t *copy_urlcompoments(string_t str);
 
 void free_urlcomponents(urlcompoments_t *components);
 

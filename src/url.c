@@ -66,7 +66,8 @@ string_t urldecode(string_t *str)
   return *str;
 }
 
-urlcompoments_t *copy_urlparse(string_t str)
+/* 参考PHP parse_url() 源代码 */
+urlcompoments_t *copy_urlcompoments(string_t str)
 {
   char port_buf[6];
   urlcompoments_t *result = calloc(1, sizeof(urlcompoments_t));

@@ -167,7 +167,7 @@ int main(int argc, const char * argv[])
     printf("urldecode(copy_urlencode(url)): '%s'\n", urldecode(&str));
     free(str);
     
-    urlcompoments_t *components = copy_urlparse(url);
+    urlcompoments_t *components = copy_urlcompoments(url);
     if (components) {
       printf("copy_urlparse - scheme: '%s'\n", components->scheme);
       printf("copy_urlparse - user: '%s'\n", components->user);
