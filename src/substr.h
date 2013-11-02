@@ -36,7 +36,7 @@ string_t copy_substr(const string_t str, long start, long length);
  * @param str (const string_t) 输入字符串。如果 str 为 NULL 或空串，则将返回 NULL。
  * @return 返回复制字符串的首地址，或者在失败时返回 NULL。
  */
-#define copy_str(str) copy_substr(str, 0, strlen(str))
+#define copy_str(str) strdup(str)
 
 /**
  * 计算字串出现的次数。注意 needle 区分大小写。
