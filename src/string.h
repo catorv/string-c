@@ -25,5 +25,6 @@ typedef char * string_t;
 #include "replace.h"
 #include "html.h"
 #include "url.h"
+#include "base64.h"
 
 #endif

@@ -181,6 +181,12 @@ int main(int argc, const char * argv[])
     }
   }
   
+  __("base64"); {
+    str = copy_base64encode(s1);
+    printf("copy_base64encode(s1): '%s'\n", str);
+    free(str);
+  }
+  
   return 0;
 }
 
