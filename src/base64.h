@@ -11,7 +11,20 @@
 
 #include "string.h"
 
+/**
+ * 对字符串进行BASE64编码
+ *
+ * @param str 要进行编码的字符串
+ * @return 返回编码后的字符串
+ */
 string_t copy_base64encode(const string_t str);
 
+/**
+ * 对字符串进行BASE64解码
+ *
+ * @param str 要进行解码的字符串
+ * @return 返回解码后的字符串
+ */
+string_t base64decode(string_t *str);
 
 #endif

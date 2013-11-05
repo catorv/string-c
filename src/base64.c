@@ -40,3 +40,51 @@ string_t copy_base64encode(const string_t str)
   
   return result;
 }
+
+string_t base64decode(string_t *str)
+{
+  static uint8_t table[256];
+  static bool table_inited = false;
+  if (!table_inited) {
+    int i;
+    for (i = 0; i < 256; ++i) {
+      table[i] = (uint8_t)0x80;
+    }
+    for (i = 'A'; i <= 'Z'; ++i) {
+      table[i] = 0 + (i - 'A');
+    }
+    for (i = 'a'; i <= 'z'; ++i) {
+      table[i] = 26 + (i - 'a');
+    }
+    for (i = '0'; i <= '9'; ++i) {
+      table[i] = 52 + (i - '0');
+    }
+    table[(uint8_t)'+'] = 62;
+    table[(uint8_t)'/'] = 63;
+    table[(uint8_t)'='] = 0;
+    table_inited = true;
+  }
+  
+  const string_t input = *str;
+  size_t len = strlen(input);
+  
+  
+  int k = 0;
+  int m, n;
+  for (m = 0; m < len; m += 4) {
+    uint8_t c[4];
+    for (n = 0; n < 4; ++n) {
+      c[n] = table[(uint8_t)input[n + m]];
+      if ((c[n] & 0x80) != 0) {
+        c[n] = 0;
+      }
+    }
+    
+    input[k++] = (c[0] << 2) | (c[1] >> 4);
+    input[k++] = (c[1] << 4) | (c[2] >> 2);
+    input[k++] = (c[2] << 6) | c[3];
+  }
+  input[k] = '\0';
+  
+  return *str;
+}

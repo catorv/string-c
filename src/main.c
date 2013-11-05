@@ -169,14 +169,14 @@ int main(int argc, const char * argv[])
     
     urlcompoments_t *components = copy_urlcompoments(url);
     if (components) {
-      printf("copy_urlparse - scheme: '%s'\n", components->scheme);
-      printf("copy_urlparse - user: '%s'\n", components->user);
-      printf("copy_urlparse - password: '%s'\n", components->password);
-      printf("copy_urlparse - host: '%s'\n", components->host);
-      printf("copy_urlparse - port: %d\n", components->port);
-      printf("copy_urlparse - path: '%s'\n", components->path);
-      printf("copy_urlparse - query: '%s'\n", components->query);
-      printf("copy_urlparse - fragment: '%s'\n", components->fragment);
+      printf("copy_urlcompoments - scheme: '%s'\n", components->scheme);
+      printf("copy_urlcompoments - user: '%s'\n", components->user);
+      printf("copy_urlcompoments - password: '%s'\n", components->password);
+      printf("copy_urlcompoments - host: '%s'\n", components->host);
+      printf("copy_urlcompoments - port: %d\n", components->port);
+      printf("copy_urlcompoments - path: '%s'\n", components->path);
+      printf("copy_urlcompoments - query: '%s'\n", components->query);
+      printf("copy_urlcompoments - fragment: '%s'\n", components->fragment);
       free_urlcomponents(components);
     }
   }
@@ -184,6 +184,7 @@ int main(int argc, const char * argv[])
   __("base64"); {
     str = copy_base64encode(s1);
     printf("copy_base64encode(s1): '%s'\n", str);
+    printf("base64decode(encoded_str): '%s'\n", base64decode(&str));
     free(str);
   }
   
