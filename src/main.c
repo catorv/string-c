@@ -188,6 +188,17 @@ int main(int argc, const char * argv[])
     free(str);
   }
   
+  __("md5"); {
+    str = copy_md5(s2);
+    printf("copy_md5(s2): '%s'\n", str);
+    free(str);
+    
+    str = copy_md5(s3);
+    printf("copy_md5(s3): '%s'\n", str);
+    free(str);
+
+  }
+  
   return 0;
 }
 
