@@ -189,14 +189,26 @@ int main(int argc, const char * argv[])
   }
   
   __("md5"); {
-    str = copy_md5(s2);
-    printf("copy_md5(s2): '%s'\n", str);
-    free(str);
+    md5context_t md5;
+    unsigned char decrypt[16];
+    size_t len = strlen(s2);
+    int i;
+    
+    md5init(&md5);
+    md5update(&md5, s2, len);
+    md5final(decrypt, &md5);
+    
+    printf("copy_md5(s2): '");
+    for(i = 0; i < 16; i++) {
+      printf("%02x", decrypt[i]);
+    }
+    printf("'\n");
+    
+    // or
     
     str = copy_md5(s3);
     printf("copy_md5(s3): '%s'\n", str);
     free(str);
-
   }
   
   return 0;

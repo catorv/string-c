@@ -22,6 +22,12 @@ void md5init(md5context_t *context);
 void md5update(md5context_t *context, string_t input, size_t length);
 void md5final(unsigned char digest[16], md5context_t *context);
 
+/**
+ * 生成MD5字符串
+ *
+ * @param input 输入字符串
+ * @return 返回32字节的十六进制MD5字符串
+ */
 string_t copy_md5(const string_t input);
 
 #endif
