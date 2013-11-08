@@ -264,8 +264,8 @@ string_t copy_md5(const string_t input)
   }
   
   unsigned char decrypt[16];
-  size_t len = strlen(input);
-  string_t result = (string_t)malloc(sizeof(char) * (len * 2 + 1));
+  const size_t len = strlen(input);
+  const string_t result = (string_t)malloc(sizeof(char) * (32 + 1));
   
   md5update(&md5, input, len);
   md5final(decrypt, &md5);
