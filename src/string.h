@@ -27,5 +27,6 @@ typedef char * string_t;
 #include "url.h"
 #include "base64.h"
 #include "md5.h"
+#include "slashes.h"
 
 #endif

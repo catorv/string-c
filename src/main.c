@@ -211,6 +211,12 @@ int main(int argc, const char * argv[])
     free(str);
   }
   
+  __("slashes"); {
+    str = copy_addslashes("ab'cd\"dd\\...");
+    printf("copy_addslashes: '%s'\n", str);
+    free(str);
+  }
+  
   return 0;
 }
 
