@@ -20,4 +20,12 @@
  */
 string_t copy_addslashes(const string_t str);
 
+/**
+ * 去除字符串的转义反斜线
+ *
+ * @param str 输入字符串
+ * @return 返回一个去除转义反斜线后的字符串
+ */
+string_t stripslashes(string_t *str);
+
 #endif

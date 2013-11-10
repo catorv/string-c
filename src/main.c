@@ -214,6 +214,7 @@ int main(int argc, const char * argv[])
   __("slashes"); {
     str = copy_addslashes("ab'cd\"dd\\...");
     printf("copy_addslashes: '%s'\n", str);
+    printf("stripslashes: '%s'\n", stripslashes(&str));
     free(str);
   }
   

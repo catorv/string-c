@@ -26,3 +26,23 @@ string_t copy_addslashes(const string_t str)
   
   return result;
 }
+
+string_t stripslashes(string_t *str)
+{
+  register string_t s = *str;
+  register string_t p = s;
+  size_t len = strlen(s);
+  const string_t se = s + len;
+  
+  while (s < se) {
+    if (s[0] == '\\' && s[1] != '\0') {
+      s++;
+    } else {
+      *p++ = *s++;
+    }
+  }
+  
+  *p = '\0';
+  
+  return *str;
+}
